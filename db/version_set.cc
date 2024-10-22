@@ -910,14 +910,14 @@ Status VersionSet::Recover(bool* save_manifest) {
       ++read_records;
       VersionEdit edit;
       s = edit.DecodeFrom(record);
-      if (s.ok()) {
-        if (edit.has_comparator_ &&
-            edit.comparator_ != icmp_.user_comparator()->Name()) {
-          s = Status::InvalidArgument(
-              edit.comparator_ + " does not match existing comparator ",
-              icmp_.user_comparator()->Name());
-        }
-      }
+      //if (s.ok()) {
+      //  if (edit.has_comparator_ &&
+      //      edit.comparator_ != icmp_.user_comparator()->Name()) {
+      //    s = Status::InvalidArgument(
+      //        edit.comparator_ + " does not match existing comparator ",
+      //        icmp_.user_comparator()->Name());
+      //  }
+      //}
 
       if (s.ok()) {
         builder.Apply(&edit);
